@@ -22,6 +22,9 @@ class PaintApp:
     def create_navbar(self):
         navbar_frame = tk.Frame(self.root, bd=5, relief=tk.RAISED)
         navbar_frame.pack(side=tk.TOP, fill=tk.X)
+
+        clear_btn = tk.Button(navbar_frame, text="Limpar Tela", command=self.clear_canvas)
+        clear_btn.pack(side=tk.LEFT, padx=5)
         
         color_btn = tk.Button(navbar_frame, text="Cores", command=self.choose_color)
         color_btn.pack(side=tk.LEFT, padx=5)
@@ -31,6 +34,10 @@ class PaintApp:
         
         size_scale = tk.Scale(navbar_frame, from_=1, to=10, orient=tk.HORIZONTAL, label="Tamanho", command=self.set_size)
         size_scale.pack(side=tk.LEFT, padx=5)
+
+
+    def clear_canvas(self):
+        self.canvas.delete("all")
 
     def choose_color(self):
         color = colorchooser.askcolor()[1]
