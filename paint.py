@@ -17,7 +17,6 @@ class PaintApp:
         self.create_navbar()
         
         self.canvas.bind("<B1-Motion>", self.paint)
-        self.canvas.bind("<ButtonRelease-1>", self.reset)
 
     def create_navbar(self):
         navbar_frame = tk.Frame(self.root, bd=5, relief=tk.RAISED)
@@ -59,9 +58,6 @@ class PaintApp:
         x1, y1 = (event.x - self.pen_size), (event.y - self.pen_size)
         x2, y2 = (event.x + self.pen_size), (event.y + self.pen_size)
         self.canvas.create_oval(x1, y1, x2, y2, fill=self.pen_color, outline=self.pen_color)
-
-    def reset(self, event):
-        pass
 
 if __name__ == "__main__":
     root = tk.Tk()
